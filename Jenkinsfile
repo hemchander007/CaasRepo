@@ -1,7 +1,7 @@
 node{
      
     stage('SCM Checkout'){
-        git url: 'https://github.com/ArnabMajumder009/CaasRepo.git',branch: 'main'
+       git branch: 'main', url: 'https://github.com/ArnabMajumder009/CaasRepo.git'
     }
     
     
