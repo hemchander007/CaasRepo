@@ -1,18 +1,171 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: nginx
+  name: app
+  namespace: cpd-support-my-first-ns
+  uid: 9473b011-70f0-4097-bd95-65673247258d
+  resourceVersion: '1868377115'
+  generation: 3
+  creationTimestamp: '2022-09-15T08:18:17Z'
+  annotations:
+    deployment.kubernetes.io/revision: '1'
+  managedFields:
+    - manager: OpenAPI-Generator
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-09-15T08:18:17Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+            'f:spec':
+              'f:automountServiceAccountToken': {}
+              'f:containers':
+                'k:{"name":"app"}':
+                  .: {}
+                  'f:image': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":80,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:serviceAccount': {}
+              'f:serviceAccountName': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-09-15T08:21:44Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      name: nginx
-  replicas: 1
+      app: app
   template:
     metadata:
-      name: nginx
-  spec:
-    containers:
-    - name: nginx
-      image: registry-jpe2.r-local.net/cpd-support-marvel/nginx:latest
-      ports:
-      - containerPort: 80
+      creationTimestamp: null
+      labels:
+        app: app
+        version: 2022-09-15-08.18.17
+    spec:
+      containers:
+        - name: app
+          image: 'registry-jpe2.r-local.net/cpd-support-marvel/nginx:latest'
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1Gi
+            requests:
+              cpu: '1'
+              memory: 1Gi
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sh
+                  - '-c'
+                  - sleep 30s
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: tenant-pod-root
+      serviceAccount: tenant-pod-root
+      automountServiceAccountToken: true
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 3
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-09-15T08:18:20Z'
+      lastTransitionTime: '2022-09-15T08:18:17Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "app-5b987994f" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-09-15T08:21:44Z'
+      lastTransitionTime: '2022-09-15T08:21:44Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+
