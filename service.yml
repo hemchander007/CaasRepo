@@ -7,6 +7,6 @@ spec:
     name: nginx
   ports:
   #  - protocol: TCP
-      port: 80 # The port that the service is running on in the cluster
-      targetPort: 80 # The port exposed by the service
+  - port: 80 # The port that the service is running on in the cluster
+    targetPort: 80 # The port exposed by the service
   type: NodePort
