@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+      environment {
+        K8S_CLUSTER_ID = 'jpe1-caas1-dev1'
+        K8S_NAMESPACE = "${env.JOB_NAME.split('/')[3]}"
+    }
     stages {
         stage('scm') {
             steps {
