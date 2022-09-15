@@ -8,9 +8,9 @@ node{
     
     stage('Deploy into K8s'){
     
-    sh 'kubectl apply -f app.yml'
+    sh './kubectl apply -f app.yml'
     
-    sh 'kubectl apply -f service.yml'
+    sh './kubectl apply -f service.yml'
     
     
     }
