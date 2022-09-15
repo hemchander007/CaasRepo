@@ -16,8 +16,8 @@ pipeline {
                 
                 script{
                    // Apply deployment
-                   cpd.kubectl('apply -f Myapp.yml --validate=false')
-                  // cpd.kubectl('apply -f service.yml')
+                   cpd.kubectl('apply -f Myapp.yml')
+                   cpd.kubectl('apply -f service.yml')
                     
                    
                }
