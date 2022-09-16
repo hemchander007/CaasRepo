@@ -2,32 +2,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: app
+  name: app2
   namespace: cpd-support-my-first-ns
   uid: ca85c103-6636-4f78-925d-c5dc682b0ca9
   resourceVersion: '1868378011'
   creationTimestamp: '2022-09-15T08:22:18Z'
-  managedFields:
-    - manager: OpenAPI-Generator
-      operation: Update
-      apiVersion: v1
-      time: '2022-09-15T08:22:18Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:ports':
-            .: {}
-            'k:{"port":80,"protocol":"TCP"}':
-              .: {}
-              'f:name': {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-          'f:selector':
-            .: {}
-            'f:app': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
 spec:
   ports:
     - name: tcp-1
@@ -35,7 +14,7 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: app
+    app: app2
   clusterIP: 100.102.179.138
   clusterIPs:
     - 100.102.179.138
