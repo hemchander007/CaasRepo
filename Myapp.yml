@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: app3
-          image: 'registry-jpe2.r-local.net/cpd-support-marvel/nginx:latest'
+          image: 'registry-jpe2.r-local.net/dockerhub/library/busybox:latest'
           ports:
             - containerPort: 80
               protocol: TCP
