@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: app2
+  name: app3
   namespace: cpd-support-my-first-ns
   uid: 9473b011-70f0-4097-bd95-65673247258d
   resourceVersion: '1868377115'
@@ -13,16 +13,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app2
+      app: app3
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: app2
+        app: app3
         version: 2022-09-15-08.18.17
     spec:
       containers:
-        - name: app2
+        - name: app3
           image: 'registry-jpe2.r-local.net/cpd-support-marvel/nginx:latest'
           ports:
             - containerPort: 80
