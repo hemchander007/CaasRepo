@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: app4
+  name: app5
   namespace: cpd-support-my-first-ns
   uid: ca85c103-6636-4f78-925d-c5dc682b0ca9
   resourceVersion: '1868378011'
