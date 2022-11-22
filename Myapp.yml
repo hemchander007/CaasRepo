@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: app4
+  name: app5
   namespace: cpd-support-my-first-ns
   uid: 9473b011-70f0-4097-bd95-65673247258d
   resourceVersion: '1868377115'
@@ -13,12 +13,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app4
+      app: app5
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: app4
+        app: app5
         version: 2022-09-15-08.18.17
     spec:
       containers:
