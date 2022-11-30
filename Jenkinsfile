@@ -16,8 +16,8 @@ pipeline {
                 
                 script{
                    // Apply deployment
-                   cpd.kubectl('replace --force -f Myapp.yml')
-                   cpd.kubectl('replace --force -f service.yml')
+                   cpd.kubectl('apply -f Myapp.yml')
+                   cpd.kubectl('apply -f service.yml')
                     
                    
                }
