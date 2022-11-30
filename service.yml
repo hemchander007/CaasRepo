@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: app5
+  name: nginx-svc
   namespace: scv-converter-trino
   uid: ca85c103-6636-4f78-925d-c5dc682b0ca9
   resourceVersion: '1868378011'
@@ -14,7 +14,7 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: app4
+    app: nginx
 #  clusterIP: 100.102.179.138
  # clusterIPs:
   #  - 100.102.179.138
