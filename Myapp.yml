@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: nginx
-  namespace: scv-converter-trino
+  namespace: scv-trino
   uid: 9473b011-70f0-4097-bd95-65673247258d
 spec:
   replicas: 1
