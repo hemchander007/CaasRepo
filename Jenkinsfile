@@ -2,7 +2,7 @@ pipeline {
     agent any
       environment {
         K8S_CLUSTER_ID = 'jpw1-caas1-prod1'
-        K8S_NAMESPACE = "${env.JOB_NAME.split('/')[3]}"
+        K8S_NAMESPACE = "scv-converter-trino"
     }
     stages {
         stage('scm') {
