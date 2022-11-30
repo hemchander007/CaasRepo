@@ -1,23 +1,23 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: app5
+  name: nginx
   namespace: scv-converter-trino
   uid: 9473b011-70f0-4097-bd95-65673247258d
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app5
+      app: nginx
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: app5
+        app: nginx
         version: 2022-09-15-08.18.17
     spec:
       containers:
-        - name: app3
+        - name: nginx
           image: 'registry-jpe2.r-local.net/dockerhub/library/nginx:latest'
           ports:
             - containerPort: 80
