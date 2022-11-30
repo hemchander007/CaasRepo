@@ -2,13 +2,8 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: app5
-  namespace: cpd-support-my-first-ns
+  namespace: scv-converter-trino
   uid: 9473b011-70f0-4097-bd95-65673247258d
-  resourceVersion: '1868377115'
-  generation: 3
-  creationTimestamp: '2022-09-15T08:18:17Z'
-  annotations:
-    deployment.kubernetes.io/revision: '1'
 spec:
   replicas: 1
   selector:
