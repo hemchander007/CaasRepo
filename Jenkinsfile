@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git branch: 'main', url: 'https://github.com/ArnabMajumder009/CaasRepo.git'
+                git branch: 'main', url: 'https://github.com/hemchander007/CaasRepo.git'
             }
         }
         
