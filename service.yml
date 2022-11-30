@@ -3,13 +3,13 @@ kind: Service
 apiVersion: v1
 metadata:
   name: app5
-  namespace: cpd-support-my-first-ns
+  namespace: scv-converter-trino
   uid: ca85c103-6636-4f78-925d-c5dc682b0ca9
   resourceVersion: '1868378011'
   creationTimestamp: '2022-09-15T08:22:18Z'
 spec:
   ports:
-    - name: tcp-1
+    - name: http
       protocol: TCP
       port: 80
       targetPort: 80
